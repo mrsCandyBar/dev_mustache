@@ -1,0 +1,10 @@
+{ 
+	"name" : "Dev_Mustache", 
+	"version" : "0.0.1", 
+	"description" : "Test driving mustache.js",
+	"license" : "BSD-3-Clause",
+	"repository" :
+	  { "type" : "git", 
+	  	"url" : "https://github.com/mrsCandyBar/dev_mustache.git"
+	  }
+}
