@@ -1,2 +1,3 @@
 # dev_mustache
-playing around with mustache scripts
+Playing around with Mustache scripts
+Mustache can be found here : http://mustache.github.io/
