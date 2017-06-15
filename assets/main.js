@@ -26,19 +26,10 @@
         })();
 
         function render() {
-          $('body').removeAttr('style');
-          target.html('Loading...');
-
-          setTimeout( function() {
-            $('body').css('background', 'black');
-
-            let randomCake = getRandomNumberBetween(0,2);
-            $.get('template/cakeGen.html', function(template) {
-              let rendered = Mustache.render(template, cake[randomCake]);
-              target.html(rendered);
-            });
-
-          },400);
+          $.get('template/cakeGen.html', function(template) {
+            let rendered = Mustache.render(template, cake[getRandomNumberBetween(0,2)]);
+            target.html(rendered);
+          });
         }
 
         function getRandomNumberBetween(min, max) {
