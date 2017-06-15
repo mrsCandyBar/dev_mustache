@@ -3,6 +3,7 @@
 
         let template = $('#template');
         let target = $('#target');
+        let selectedCake;
         let cake = [
           {
             type: "Chocolate",
@@ -26,23 +27,30 @@
         })();
 
         function render() {
-          $('body').removeAttr('style');
-          target.html('Loading...');
-
-          setTimeout( function() {
-            $('body').css('background', 'black');
-
-            let randomCake = getRandomNumberBetween(0,2);
-            $.get('template/cakeGen.html', function(template) {
-              let rendered = Mustache.render(template, cake[randomCake]);
-              target.html(rendered);
-            });
-
-          },400);
+          $.get('template/cakeGen.html', function(template) {
+            let rendered = Mustache.render(template, cake[getRandomNumberBetween(0,2)]);
+            target.html(rendered);
+          });
         }
 
         function getRandomNumberBetween(min, max) {
-          return Math.round(Math.random() * (max - min) + min);
+          let randomNumber,
+            numberMin = min, 
+            numberMax = max;
+
+          for (noOfTries = 0; noOfTries < 3; noOfTries++) {
+            randomNumber = Math.round(Math.random() * (numberMax - numberMin) + numberMin);
+
+            if (randomNumber != selectedCake) {
+              selectedCake = randomNumber;
+              return selectedCake;
+            } 
+
+            if (noOfTries === 2) {
+              selectedCake = selectedCake != 0 ? 0 : 1;
+              return selectedCake; 
+            } 
+          }
         }
 
         return {
