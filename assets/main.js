@@ -38,9 +38,6 @@
               target.html(rendered);
             });
 
-            /*let rendered = Mustache.render(template.html(), cake[randomCake]);
-            target.html(rendered);*/
-
           },400);
         }
 
