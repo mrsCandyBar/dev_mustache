@@ -3,6 +3,7 @@
 
         let template = $('#template');
         let target = $('#target');
+        let selectedCake;
         let cake = [
           {
             type: "Chocolate",
@@ -33,7 +34,23 @@
         }
 
         function getRandomNumberBetween(min, max) {
-          return Math.round(Math.random() * (max - min) + min);
+          let randomNumber,
+            numberMin = min, 
+            numberMax = max;
+
+          for (noOfTries = 0; noOfTries < 3; noOfTries++) {
+            randomNumber = Math.round(Math.random() * (numberMax - numberMin) + numberMin);
+
+            if (randomNumber != selectedCake) {
+              selectedCake = randomNumber;
+              return selectedCake;
+            } 
+
+            if (noOfTries === 2) {
+              selectedCake = selectedCake != 0 ? 0 : 1;
+              return selectedCake; 
+            } 
+          }
         }
 
         return {
