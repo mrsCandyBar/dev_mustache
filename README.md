@@ -1,4 +1,4 @@
-# dev_mustache
+# dev_template
 
 Simple base project for mock up projects before adding a Task Runner and moving onto larger frameworks
 
