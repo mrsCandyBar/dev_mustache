@@ -1,8 +1,7 @@
 
       generateCake = (function(){
 
-        let template = $('#template');
-        let target = $('#target');
+        let $target = $('#target');
         let selectedCake;
         let cake = [
           {
@@ -23,17 +22,18 @@
         ]
 
         let init = (function() {
-          render();
+          _render();
+          _bindUIevents();
         })();
 
-        function render() {
+        function _render() {
           $.get('template/cakeGen.html', function(template) {
-            let rendered = Mustache.render(template, cake[getRandomNumberBetween(0,2)]);
-            target.html(rendered);
+            let rendered = Mustache.render(template, cake[_getRandomNumberBetween(0,2)]);
+            $target.html(rendered);
           });
         }
 
-        function getRandomNumberBetween(min, max) {
+        function _getRandomNumberBetween(min, max) {
           let randomNumber,
             numberMin = min, 
             numberMax = max;
@@ -53,10 +53,10 @@
           }
         }
 
-        return {
-          start: function() {
-            render();
-          }
-        }
+        function _bindUIevents() {
+          $target.delegate('button', 'click', function() {
+            _render();
+          });
+        };
 
       })();
