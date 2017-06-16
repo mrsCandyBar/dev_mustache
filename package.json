@@ -1,7 +1,7 @@
 {
-	"name": "Dev_Mustache",
-	"version": "0.0.2",
-	"description": "Test driving mustache.js",
+	"name": "dev_template",
+	"version": "0.0.3",
+	"description": "Simple base project for mock up projects before adding a Task Runner and moving onto larger frameworks",
 	"license": "BSD-3-Clause",
 	"repository": {
 		"type": "git",
